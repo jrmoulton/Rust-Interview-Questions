@@ -18,12 +18,12 @@ Input: ")("
 Output: [""]
 */
 
-#[allow(dead_code, unused_variables)]
-pub fn rem_inv_par(s: &str) -> Vec<&str> {
+#[allow(unused_variables)]
+pub fn del_parentheses(s: &str) -> Vec<&str> {
     let mut stack: Vec<char> = vec![];
     let mut removable: Vec<usize> = vec![];
     let b_removable: Vec<usize> = vec![];
-    for (i, item) in s.chars().enumerate() {
+    s.chars().enumerate().for_each(|(i, item)| {
         if item == '(' {
             stack.push(item);
         } else if item == ')' {
@@ -33,8 +33,8 @@ pub fn rem_inv_par(s: &str) -> Vec<&str> {
                 removable.push(i);
             }
         }
-    }
-    let π = 3.14159;
+    });
+    let pi = std::f64::consts::PI;
     vec!["cool"]
 }
 
@@ -43,19 +43,19 @@ mod inval_paren_tests {
     use super::*;
     #[test]
     fn test1() {
-        assert_eq!(rem_inv_par("()())()"), vec!["()()()", "(())()"]);
+        assert_eq!(del_parentheses("()())()"), vec!["()()()", "(())()"]);
     }
     #[test]
     fn test2() {
-        assert_eq!(rem_inv_par("()()))()"), vec!["()()()", "(())()"]);
+        assert_eq!(del_parentheses("()()))()"), vec!["()()()", "(())()"]);
     }
     #[test]
     fn test3() {
-        assert_eq!(rem_inv_par("(a)())()"), vec!["(a)()()", "(a())()"]);
+        assert_eq!(del_parentheses("(a)())()"), vec!["(a)()()", "(a())()"]);
     }
     #[test]
     fn test4() {
-        assert_eq!(rem_inv_par(")("), vec![""]);
+        assert_eq!(del_parentheses(")("), vec![""]);
     }
 }
 

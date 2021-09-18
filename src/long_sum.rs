@@ -1,7 +1,5 @@
 use std::time::Instant;
 
-//"dvdf"
-#[allow(dead_code)]
 pub fn length_of_longest_substring(s: &str) -> i32 {
     if s.len() < 2 {
         return s.len() as i32;
@@ -34,7 +32,7 @@ pub fn length_of_longest_substring(s: &str) -> i32 {
 pub fn length_of_longest_substring_2(s: &str) -> i32 {
     let time_start = Instant::now();
     let s = s.as_bytes();
-    s.into_iter();
+    s.iter();
     let mut max_len = 0;
     let mut start = 0usize;
     let mut map = std::collections::HashMap::new();

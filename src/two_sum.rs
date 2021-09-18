@@ -1,4 +1,3 @@
-#[allow(dead_code)]
 pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
     for i in 0..nums.len() {
         for j in i + 1..nums.len() {

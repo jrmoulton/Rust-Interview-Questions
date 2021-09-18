@@ -1,7 +1,6 @@
-#[allow(dead_code)]
-fn is_power_three(n: i32) -> bool {
+pub fn is_power_three(n: i32) -> bool {
     let f = (n as f64).log(3.0).fract();
-    if f > 0.9999999999999 || f < 0.0000000000001 {
+    if !(0.0000000000001..=0.9999999999999).contains(&f) {
         return true;
     }
     false
